@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
   const result = [];
   db.connection.query("SELECT * FROM `users`").on('result', (row) => {
     result.push(row);
-  }).on('error', () => {
+  }).on('error', error => {
     console.log('ERROR', error);
   }).on('end', () => {
     res.json({ data: result });

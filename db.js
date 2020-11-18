@@ -19,8 +19,9 @@ const mysql = require('mysql');
 
 const pool = mysql.createPool({
   host: 'mysql',
-  user: 'root',
-  password: 'root',
+  // host: 'localhost',
+  user: 'macos',
+  password: 'macos',
   database: 'macos',
   port: 3306,
 });
@@ -33,6 +34,7 @@ exports.connection = {
 
     pool.getConnection(function (err, conn) {
       if (err) {
+        console.log(err);
         if (eventNameIndex.error) {
           eventNameIndex.error();
         }
